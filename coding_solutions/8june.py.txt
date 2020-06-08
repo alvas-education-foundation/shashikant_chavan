@@ -1,0 +1,32 @@
+defprintArray(p,n):
+foriinrange(0,n):
+print(p[i],end="")
+print()
+defprintAllUniqueParts(n):
+p=[0]*n #Anarraytostoreapartition
+k=0 #Indexoflastelementinapartition
+p[k]=n #Initializefirstpartition
+#asnumberitself
+whileTrue:
+printArray(p,k+1)
+rem_val=0
+whilek>=0andp[k]==1:
+rem_val+=p[k]
+k-=1
+ifk<0:
+print()
+return
+p[k]-=1
+rem_val+=1
+whilerem_val>p[k]:
+p[k+1]=p[k]
+rem_val=rem_val-p[k]
+k+=1
+p[k+1]=rem_val
+k+=1
+print('AllUniquePartitionsof2')
+printAllUniqueParts(2)
+print('AllUniquePartitionsof3')
+printAllUniqueParts(3)
+print('AllUniquePartitionsof4')
+printAllUniqueParts(4)
